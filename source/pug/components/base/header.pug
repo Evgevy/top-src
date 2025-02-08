@@ -1,0 +1,147 @@
+mixin header(headerMods, currentUrl)
+  -
+    const headerLinks = [
+      {
+        href: "#",
+        text: "Разработка",
+        isAccent: true,
+        list: [
+          {
+            title: "Визитка",
+            href: "#"
+          },
+          {
+            title: "Landing-page",
+            href: "#"
+          },
+          {
+            title: "сайт услуг",
+            href: "#"
+          },
+          {
+            title: "интернет-магазин",
+            href: "#"
+          },
+          {
+            title: "сайт каталог",
+            href: "#"
+          },
+          {
+            title: "корпоративный сайт",
+            href: "#"
+          },
+          {
+            title: "портал",
+            href: "#"
+          }
+        ]
+      },
+      {
+        href: "#",
+        text: "Продвижение"
+      },
+      {
+        href: "#",
+        text: "Другие услуги",
+        isAccent: true,
+        list: [
+          {
+            title: "Контекстная реклама",
+            href: "#"
+          },
+          {
+            title: "Техническая поддержка",
+            href: "#"
+          },
+          {
+            title: "Доработка сайтов",
+            href: "#"
+          },
+          {
+            title: "Дизайн сайтов",
+            href: "#"
+          },
+          {
+            title: "Верстка сайтов",
+            href: "#"
+          },
+          {
+            title: "аудит",
+            href: "#"
+          }
+        ]
+      },
+      {
+        href: "#",
+        text: "Блог"
+      },
+      {
+        href: "#",
+        text: "О компании",
+        isAccent: true,
+        list: [
+          {
+            title: "реквизиты",
+            href: "#"
+          },
+          {
+            title: "процесс работы",
+            href: "#"
+          },
+          {
+            title: "вакансии",
+            href: "#"
+          },
+          {
+            title: "Брифы",
+            href: "#"
+          }
+        ]
+      },
+      {
+        href: "#",
+        text: "Контакты"
+      }
+    ]
+
+  header.header(class=headerMods data-header)
+    .container
+      .header__wrapper
+        a.header__logo(href="index.html", aria-label="Переход на главную")
+          +icon("logo-top", 153, 61)
+        nav.main-nav
+          button(type="button" aria-label="Переключатель отображения меню", aria-pressed="false" data-toggle-menu).btn-reset.main-nav__toggle
+            span
+            span
+            span
+          ul.main-nav__list
+            each item in headerLinks
+              li.main-nav__item
+                a(class=item.isAccent ? "main-nav__link main-nav__link--accent" : 'main-nav__link' href=item.href)
+                  span 
+                    | #{item.text}
+                  if item.isAccent
+                    +icon('icon-arrow', 20, 17)
+                if item.list
+                  ul
+                    each i in item.list
+                      li
+                        a(href=i.href) #{i.title}
+            li.main-nav__item.main-nav__item--mobile
+              .header__social 
+                a(href="#!" target="_blank").header__social-link
+                  +icon('icon-telega', 30, 30)
+                a(href="#!" target="_blank").header__social-link
+                  +icon('icon-whats', 30, 30)
+              .header__contacts 
+                a(href="tel:+79999999999").header__phone +7 (999) 999-99-99 
+                a(href="mailto:kaktys@mail.ru").header__email kaktys@mail.ru
+        .header__contacts-list 
+          .header__social 
+            a(href="#!" target="_blank").header__social-link
+              +icon('icon-telega', 30, 30)
+            a(href="#!" target="_blank").header__social-link
+              +icon('icon-whats', 30, 30)
+          .header__contacts 
+            a(href="tel:+79999999999").header__phone +7 (999) 999-99-99 
+            a(href="mailto:kaktys@mail.ru").header__email kaktys@mail.ru

@@ -1,0 +1,313 @@
+.main-nav {
+  @include vp-1199 {
+    margin-right: auto;
+    margin-left: 44px;
+  }
+
+  @include vp-767 {
+    margin: 0 0 0 20px;
+  }
+
+  &__toggle {
+    z-index: 11;
+    position: relative;
+    display: none;
+
+    width: 35px;
+    height: 20px;
+
+    cursor: pointer;
+    user-select: none;
+
+    transition: opacity $trans-default;
+
+    @include vp-1199 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    span {
+      display: block;
+      position: absolute;
+      border-radius: 10px;
+      left: 0;
+
+      width: 100%;
+      height: 3px;
+
+      background-color: $color-default-white;
+
+      transition: transform $trans-default, opacity $trans-default,
+        visibility $trans-default;
+
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        top: 50%;
+
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(3) {
+        bottom: 0;
+      }
+    }
+
+    @include hover-focus {
+      opacity: 0.8;
+    }
+  }
+
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 20px 0 0;
+    list-style: none;
+
+    @include vp-1199 {
+      z-index: 10;
+      position: fixed;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      top: 90px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $color-default-black;
+      width: 100%;
+      padding: 0px 0px 20px;
+      overflow-y: auto;
+      overflow-x: hidden !important;
+      transition: transform $trans-default, visibility $trans-default,
+        opacity $trans-default;
+      transform: translateX(100%);
+    }
+  }
+
+  &__item {
+    margin-right: 50px;
+    position: relative;
+    &--mobile {
+      display: none;
+      justify-content: space-between;
+
+      @include vp-767 {
+        display: flex;
+        border: none;
+        padding: 20px 20px 0;
+      }
+    }
+    @include vp-1439 {
+      margin-right: 20px;
+    }
+
+    @include vp-1199 {
+      margin-right: 0;
+      padding: 0px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      border-image: linear-gradient(to right, #ea32d9 0%, #004bed 100%) 1;
+      transition: $trans-default;
+    }
+
+    &:last-child {
+      margin-right: 0;
+
+      @include vp-767 {
+        margin-bottom: 0;
+      }
+    }
+
+    ul {
+      width: 310px;
+      padding: 0px;
+      position: absolute;
+      background: $color-test;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      top: 65px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity $trans-default;
+
+      &::before {
+        content: "";
+        position: absolute;
+
+        right: 0;
+        left: 0;
+
+        width: 100%;
+        display: block;
+        height: 50px;
+        top: -50px;
+      }
+      &.is-active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      li {
+        padding: 14px 10px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        background: transparent;
+        border: 1px solid transparent;
+        border-image: linear-gradient(to right, #ea32d9 0%, #004bed 100%) 1;
+        transition: $trans-default;
+        a {
+          width: 100%;
+          display: inline-block;
+          font-family: $ff-roboto;
+          font-size: 16px;
+          line-height: 120%;
+          text-transform: uppercase;
+          color: $color-default-white;
+
+          @include vp-1199 {
+            padding: 14px 20px;
+          }
+        }
+
+        @include vp-1199 {
+          border-left: none;
+          border-right: none;
+          border-top: none;
+          border-bottom: 1px solid transparent;
+          border-image: linear-gradient(to right, #ea32d9 0%, #004bed 100%) 1;
+          text-align: left;
+          padding: 0;
+        }
+
+        @include vp-767 {
+          text-align: center;
+        }
+      }
+
+      li:first-child {
+        @include vp-1199 {
+          border-top: 1px solid transparent;
+          border-image: linear-gradient(to right, #ea32d9 0%, #004bed 100%) 1;
+        }
+      }
+
+      li:last-child {
+        @include vp-1199 {
+          border-bottom: none;
+        }
+      }
+
+      li:hover {
+        background: linear-gradient(to right, #ea32d9 0%, #004bed 100%);
+        border: 1px solid transparent;
+        border-image: none;
+
+        @include vp-1199 {
+          background: transparent;
+        }
+      }
+
+      @include vp-1199 {
+        width: 100%;
+        transform: translateX(0);
+        transition: none;
+        &.is-active {
+          position: static;
+          transform: translateX(0);
+        }
+
+        &::before {
+          content: none;
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__item:first-child {
+    @include vp-1199 {
+      border-top: 1px solid transparent;
+      border-image: linear-gradient(to right, #ea32d9 0%, #004bed 100%) 1;
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-family: $ff-roboto;
+    font-size: 16px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: $color-default-white;
+    transition: $trans-default;
+    transform: translate3d(0, 0, 0);
+
+    svg {
+      transition: 0.2s;
+    }
+
+    span {
+      border-bottom: 1px solid transparent;
+      transition: border-bottom $trans-default;
+    }
+
+    &.is-active {
+      svg {
+        transition: 0.2s;
+        transform: rotate(180deg);
+      }
+
+      span {
+        border-bottom: 1px solid $color-default-white;
+
+        @include vp-1199 {
+          border-bottom: none;
+        }
+      }
+    }
+
+    &:hover {
+      span {
+        border-bottom: 1px solid $color-default-white;
+
+        @include vp-1199 {
+          border-bottom: none;
+        }
+      }
+    }
+
+    @include vp-1199 {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 14px 20px;
+      span {
+        border-bottom: none;
+      }
+    }
+
+    @include vp-767 {
+      display: grid;
+      grid-template-columns: 0.1fr 1fr 0.1fr;
+      span {
+        grid-column: 2;
+      }
+
+      svg {
+        justify-self: end;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Roboto";
+
+  font-display: swap;
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2"),
+    url("../fonts/Roboto-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Gerhaus";
+
+  font-display: swap;
+  src: url("../fonts/Gerhaus.woff2") format("woff2"),
+    url("../fonts/Gerhaus.woff") format("woff");
+}

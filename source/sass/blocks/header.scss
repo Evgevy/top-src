@@ -1,0 +1,126 @@
+.header {
+  z-index: 11;
+  // position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $color-default-black;
+  box-shadow: 0px 4px 4.4px 0px rgba(0, 0, 0, 0.25);
+  &.is-open {
+    .main-nav__toggle {
+      span {
+        &:nth-child(1) {
+          top: 10px;
+          transform: rotate(-45deg) translate(0, -50%);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+          visibility: hidden;
+        }
+
+        &:nth-child(3) {
+          top: 8px;
+          transform: rotate(45deg) translate(0, 50%);
+        }
+      }
+    }
+
+    .main-nav__list {
+      transform: translateX(0);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    @include vp-1023 {
+      max-width: unset;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    display: block;
+
+    width: 150px;
+    height: 60px;
+    margin-right: 40px;
+
+    @include vp-1399 {
+      margin-right: 5px;
+      width: 130px;
+    }
+
+    @include vp-389 {
+      width: 90px;
+      height: 40px;
+    }
+
+    svg {
+      display: block;
+      width: 150px;
+      height: 60px;
+
+      @include vp-1399 {
+        width: 130px;
+      }
+
+      @include vp-389 {
+        width: 110px;
+        height: 40px;
+      }
+    }
+  }
+
+  &__contacts-list {
+    display: flex;
+    gap: 30px;
+
+    @include vp-1399 {
+      gap: 20px;
+    }
+
+    @include vp-767 {
+      display: none;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__contacts {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: end;
+  }
+
+  &__phone,
+  &__email {
+    font-family: $ff-roboto;
+    font-size: 16px;
+    line-height: 0;
+    color: $color-default-white;
+    transition: box-shadow $trans-default;
+    margin: 10px 0;
+  }
+
+  &__phone {
+    text-decoration: underline;
+  }
+
+  &__phone:hover,
+  &__email:hover {
+    box-shadow: 0 0 19.7px 3px #00c8ff;
+  }
+}

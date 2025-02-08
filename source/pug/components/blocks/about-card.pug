@@ -1,0 +1,6 @@
+mixin about-card(card)
+    article.about-card 
+        .about-card__content 
+            .about-card__img 
+                +img("content/about", card.img.title, "png", 200, 200, card.title)
+            .about-card__desc #{card.desc}

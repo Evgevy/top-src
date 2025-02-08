@@ -1,0 +1,98 @@
+.about {
+  overflow: hidden;
+  &__wrapper {
+    padding: 70px 0 0;
+    margin-bottom: 270px;
+    @include vp-1199 {
+      padding: 50px 0 0;
+    }
+
+    @include vp-767 {
+      padding: 25px 0 0;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__title {
+    font-family: $ff-gerhaus;
+    font-size: 64px;
+    line-height: 64px;
+    color: $color-default-white;
+    margin: 0 0 44px;
+    text-align: center;
+    text-transform: uppercase;
+    @include vp-1199 {
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+
+    @include vp-767 {
+      font-size: 33px;
+      line-height: 35px;
+    }
+
+    @include vp-589 {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__slider {
+    display: flex;
+  }
+
+  .swiper-wrapper {
+    height: auto;
+  }
+
+  &__buttons {
+    display: flex;
+    position: relative;
+    width: 150px;
+    top: 100%;
+    right: 0;
+    left: 80%;
+
+    @include vp-1199 {
+      left: auto;
+      right: -50%;
+      transform: translateX(-50%);
+    }
+
+    @include vp-589 {
+      width: 100%;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    &::after {
+      display: none;
+    }
+    position: absolute;
+    width: 50px;
+    height: 50px;
+  }
+
+  .swiper-button-next {
+    top: 100%;
+    left: 120px;
+    z-index: 10;
+    flex-shrink: 0;
+
+    @include vp-589 {
+      left: auto;
+    }
+  }
+
+  .swiper-button-prev {
+    left: auto;
+    z-index: 10;
+    svg {
+      transform: rotate(-180deg);
+    }
+  }
+}
