@@ -170,7 +170,9 @@
     height: 350px;
     -webkit-backdrop-filter: blur(30px);
     backdrop-filter: blur(30px);
+    background: rgba(255, 255, 255, 0);
     border-radius: 50%;
+    opacity: 1;
     img {
       width: 350px;
       height: 350px;
