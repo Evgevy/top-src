@@ -1,11 +1,11 @@
 function openSubmenuHandler() {
-  const dropdownLinks = document.querySelectorAll(
-    ".main-nav__link.main-nav__link--accent"
+  const dropdownItems = document.querySelectorAll(
+    ".main-nav__item.main-nav__item--accent"
   );
 
-  dropdownLinks.forEach((dropdownLink) => {
-    const categoryButton = dropdownLink.closest("li");
-    const categoryMenu = dropdownLink.nextElementSibling;
+  dropdownItems.forEach((dropdownItem) => {
+    const categoryButton = dropdownItem; // Теперь dropdownItem и есть родительский li
+    const categoryMenu = dropdownItem.querySelector(".main-nav__sub-list"); // Находим подменю внутри li
 
     if (!categoryButton || !categoryMenu) {
       return;
@@ -14,12 +14,12 @@ function openSubmenuHandler() {
     const handleClick = (event) => {
       // Проверяем, что ширина экрана МЕНЬШЕ или равна 1199px
       if (window.innerWidth <= 1199) {
-        // Предотвращаем переход по ссылке ТОЛЬКО для .main-nav__link.main-nav__link--accent
+        // Предотвращаем переход по ссылке
         event.preventDefault();
 
         // Добавляем/удаляем класс "is-active" для открытия/закрытия подменю
         categoryMenu.classList.toggle("is-active");
-        dropdownLink.classList.toggle("is-active");
+        dropdownItem.classList.toggle("is-active"); // Добавляем класс active на li
       }
     };
 
@@ -28,7 +28,7 @@ function openSubmenuHandler() {
         return; // Ничего не делаем
       }
       categoryMenu.classList.add("is-active");
-      dropdownLink.classList.add("is-active");
+      dropdownItem.classList.add("is-active"); // Добавляем класс active на li
     };
 
     const handleMouseLeave = () => {
@@ -36,13 +36,13 @@ function openSubmenuHandler() {
         return; // Ничего не делаем
       }
       categoryMenu.classList.remove("is-active");
-      dropdownLink.classList.remove("is-active");
+      dropdownItem.classList.remove("is-active"); // Добавляем класс active на li
     };
 
-    // Добавляем обработчик клика непосредственно на ссылку
-    dropdownLink.addEventListener("click", handleClick);
+    // Добавляем обработчик клика непосредственно на родителя li
+    categoryButton.addEventListener("click", handleClick);
 
-    // Добавляем обработчики mouseover/mouseleave для десктопа (на родителя)
+    // Добавляем обработчики mouseover/mouseleave для десктопа (на родителя li)
     categoryButton.addEventListener("mouseover", handleMouseOver);
     categoryButton.addEventListener("mouseleave", handleMouseLeave);
   });

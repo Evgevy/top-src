@@ -9,6 +9,7 @@ import { initTabs } from "./modules/tabs/init-tabs";
 import { accordionMobile } from "./modules/header/accordion-mobile";
 import { openSubmenuHandler } from "./modules/header/open-submenu-handler";
 import { initCustomSlider } from "./modules/sliders/init-custom-slider";
+import { initArrow } from "./modules/init-arrow";
 
 window.addEventListener("DOMContentLoaded", () => {
   // Utils
@@ -26,6 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
   accordionMobile();
   openSubmenuHandler();
   initCustomSlider();
+  initArrow();
 
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
   // в load следует добавить скрипты, не участвующие в работе первого экрана

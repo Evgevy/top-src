@@ -109,6 +109,7 @@ mixin header(headerMods, currentUrl)
       .header__wrapper
         a.header__logo(href="index.html", aria-label="Переход на главную")
           +icon("logo-top", 153, 61)
+          //- img(src="img/sprite/logo-top.svg" width="153" height="61" alt="Лого")
         nav.main-nav
           button(type="button" aria-label="Переключатель отображения меню", aria-pressed="false" data-toggle-menu).btn-reset.main-nav__toggle
             span
@@ -116,14 +117,12 @@ mixin header(headerMods, currentUrl)
             span
           ul.main-nav__list
             each item in headerLinks
-              li.main-nav__item
-                a(class=item.isAccent ? "main-nav__link main-nav__link--accent" : 'main-nav__link' href=item.href)
-                  span 
-                    | #{item.text}
-                  if item.isAccent
-                    +icon('icon-arrow', 20, 17)
+              li(class=(item.isAccent ? "main-nav__item main-nav__item--accent" : 'main-nav__item'))
+                a.main-nav__link(href=item.href)
+                  span #{item.text}
+                if item.isAccent
                 if item.list
-                  ul
+                  ul.main-nav__sub-list
                     each i in item.list
                       li
                         a(href=i.href) #{i.title}

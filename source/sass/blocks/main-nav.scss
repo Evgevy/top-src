@@ -61,6 +61,8 @@
     }
   }
 
+  ul,
+  .main-nav__list,
   &__list {
     display: flex;
     margin: 0;
@@ -88,19 +90,40 @@
     }
   }
 
+  li,
   &__item {
     margin-right: 50px;
     position: relative;
-    &--mobile {
-      display: none;
-      justify-content: space-between;
 
-      @include vp-767 {
-        display: flex;
-        border: none;
-        padding: 20px 20px 0;
+    svg {
+      text-align: center;
+      display: block;
+      margin: 10px auto 0;
+      transition: .3s;
+      @include vp-1199 {
+        margin: 0;
+        position: absolute;
+        right: 20px;
+        top: 15px;
       }
     }
+
+    &.is-active {
+      svg {
+        transform: rotate(180deg);
+      }
+      @include vp-1199 {
+        svg {
+          transition: .3s;
+          margin: 0;
+          position: absolute;
+          right: 20px;
+          top: 15px;
+          transform: rotate(180deg);
+        }
+      }
+    }
+
     @include vp-1439 {
       margin-right: 20px;
     }
@@ -125,7 +148,8 @@
       }
     }
 
-    ul {
+    ul,
+    .main-nav__sub-list {
       width: 310px;
       padding: 0px;
       position: absolute;
@@ -158,6 +182,7 @@
       }
 
       li {
+        margin: 0;
         padding: 14px 10px;
         width: 100%;
         text-align: center;
@@ -178,6 +203,10 @@
           @include vp-1199 {
             padding: 14px 20px;
           }
+
+          @include vp-767 {
+            display: block;
+          }
         }
 
         @include vp-1199 {
@@ -192,6 +221,11 @@
 
         @include vp-767 {
           text-align: center;
+          display: grid;
+          grid-template-columns: 0.1fr 1fr 0.1fr;
+          a {
+            grid-column: 2;
+          }
         }
       }
 
@@ -242,6 +276,7 @@
     }
   }
 
+  a,
   &__link {
     display: flex;
     flex-direction: column;
@@ -309,5 +344,39 @@
         justify-self: end;
       }
     }
+  }
+
+  a {
+    @include vp-767 {
+      display: block;
+    } 
+  }
+
+  .main-nav__item {
+    &--mobile {
+      display: none;
+
+      @include vp-767 {
+        display: flex;
+        justify-content: space-between !important;
+        border: none !important;
+        padding: 20px 20px 0;
+  
+        .header__contacts {
+          .header__phone,
+          .header__email {
+            padding: 0;
+            margin: 0;
+          }
+
+          .header__email {
+            text-transform: none;
+          }
+        }
+      }
+    }
+   
+
+    
   }
 }
