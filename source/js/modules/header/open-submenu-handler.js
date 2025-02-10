@@ -4,50 +4,50 @@ function openSubmenuHandler() {
   );
 
   dropdownItems.forEach((dropdownItem) => {
-    const categoryButton = dropdownItem; // Теперь dropdownItem и есть родительский li
-    const categoryMenu = dropdownItem.querySelector(".main-nav__sub-list"); // Находим подменю внутри li
+    const categoryButton = dropdownItem; 
+    const categoryMenu = dropdownItem.querySelector(".main-nav__sub-list"); 
 
     if (!categoryButton || !categoryMenu) {
       return;
     }
 
     const handleClick = (event) => {
-      // Проверяем, что ширина экрана МЕНЬШЕ или равна 1199px
+      
       if (window.innerWidth <= 1199) {
-        // Если кликнули на ссылку внутри подменю, не делаем ничего (позволяем перейти по ссылке)
+        
         if (event.target.closest('.main-nav__sub-list a')) {
-          return; // Позволяем переход по ссылке подменю
+          return; 
         }
         
-        // Предотвращаем переход по ссылке родителя
+        
         event.preventDefault();
 
-        // Добавляем/удаляем класс "is-active" для открытия/закрытия подменю
+       
         categoryMenu.classList.toggle("is-active");
-        dropdownItem.classList.toggle("is-active"); // Добавляем класс active на li
+        dropdownItem.classList.toggle("is-active"); 
       }
     };
 
     const handleMouseOver = () => {
       if (window.innerWidth <= 1199) {
-        return; // Ничего не делаем
+        return; 
       }
       categoryMenu.classList.add("is-active");
-      dropdownItem.classList.add("is-active"); // Добавляем класс active на li
+      dropdownItem.classList.add("is-active"); 
     };
 
     const handleMouseLeave = () => {
       if (window.innerWidth <= 1199) {
-        return; // Ничего не делаем
+        return; 
       }
       categoryMenu.classList.remove("is-active");
-      dropdownItem.classList.remove("is-active"); // Добавляем класс active на li
+      dropdownItem.classList.remove("is-active"); 
     };
 
-    // Добавляем обработчик клика непосредственно на родителя li
+    
     categoryButton.addEventListener("click", handleClick);
 
-    // Добавляем обработчики mouseover/mouseleave для десктопа (на родителя li)
+    
     categoryButton.addEventListener("mouseover", handleMouseOver);
     categoryButton.addEventListener("mouseleave", handleMouseLeave);
   });
