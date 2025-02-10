@@ -48,11 +48,10 @@
   &__logo {
     position: relative;
     display: block;
-
     width: 150px;
     height: 60px;
     margin-right: 40px;
-
+    flex-shrink: 0;
     @include vp-1399 {
       margin-right: 5px;
       width: 130px;
@@ -81,6 +80,7 @@
   }
 
   &__contacts-list {
+    justify-self: end;
     display: flex;
     gap: 30px;
 
@@ -114,6 +114,10 @@
     flex-direction: column;
     gap: 10px;
     align-items: end;
+
+    .header__email {
+      text-transform: none;
+    }
   }
 
   &__phone,
@@ -128,6 +132,10 @@
 
   &__phone {
     text-decoration: underline;
+  }
+
+  &__email {
+    text-transform: none;
   }
 
   &__phone:hover,
