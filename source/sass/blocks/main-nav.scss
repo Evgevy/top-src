@@ -1,4 +1,5 @@
 .main-nav {
+  
   @include vp-1199 {
     margin-right: auto;
     margin-left: 44px;
@@ -65,10 +66,11 @@
   .main-nav__list,
   &__list {
     display: flex;
+    justify-content: space-between;
     margin: 0;
     padding: 20px 0 0;
     list-style: none;
-
+    // position: relative;
     @include vp-1199 {
       z-index: 10;
       position: fixed;
@@ -93,15 +95,7 @@
   li,
   &__item {
     margin-right: 50px;
-    position: relative;
-
-    // &--accent {
-    //   @include vp-1199 {
-    //     a {
-    //       border-bottom: none;
-    //     }
-    //   }
-    // }
+    // position: relative;
 
     svg {
       text-align: center;
@@ -137,7 +131,7 @@
     }
 
     a {
-      border-bottom: 1px solid transparent;
+      
       transition: border-bottom $trans-default;
 
       @include vp-1199 {
@@ -147,7 +141,7 @@
 
     &:hover {
       a {
-        border-bottom: 1px solid $color-default-white;
+        
 
         @include vp-1199 {
           border-bottom: none;
@@ -179,22 +173,32 @@
       }
     }
 
+    .main-nav__sub-content {
+      width: 100%;
+      max-width: 1680px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      gap: 10px;
+
+      li {
+        max-width: 240px;
+      }
+    }
+
     ul,
     .main-nav__sub-list {
-      width: 310px;
-      padding: 0px;
-      position: absolute;
-      background: $color-test;
+      max-width: 100%; 
+      width: 100vw; 
+      padding: 30px 0; 
+      position: absolute; 
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      top: 65px;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity $trans-default;
-
+      top: 100%; 
+      left: 0; 
+      background-color: #FFFBFB; 
+      opacity: 0; 
+      visibility: hidden; 
+      transition: opacity $trans-default; 
       &::before {
         content: "";
         position: absolute;
@@ -205,7 +209,7 @@
         width: 100%;
         display: block;
         height: 50px;
-        top: -50px;
+        top: -30px;
       }
       &.is-active {
         opacity: 1;
@@ -215,8 +219,7 @@
           li {
             border-left: none;
             border-right: none;
-            border-bottom: 1px solid transparent;
-            border-image: linear-gradient(to right, #ea32d9 0%, #004bed 100%) 1;
+            
           }
         }
        
@@ -224,23 +227,22 @@
 
       li {
         margin: 0;
-        padding: 14px 10px;
+        padding: 0px;
+        max-width: 240px; 
         width: 100%;
-        text-align: center;
+        margin: 0; 
         position: relative;
         background: transparent;
-        border: 1px solid transparent;
-        border-image: linear-gradient(to right, #ea32d9 0%, #004bed 100%) 1;
-        transition: $trans-default;
         a {
-          width: 100%;
-          display: inline-block;
-          font-family: $ff-roboto;
-          font-size: 16px;
-          line-height: 120%;
-          text-transform: uppercase;
-          color: $color-default-white;
+          width: 100%; 
+          display: block; 
+          font-family: $ff-inter;
+          font-size: 20px;
+          line-height: 24px;
+          color: #00A0D2;
           border: none;
+          margin: 0 0 20px;
+          padding: 0px; // Добавляем отступы для ссылок
           @include vp-1199 {
             padding: 14px 20px;
           }
@@ -271,23 +273,11 @@
         }
       }
 
-      li:first-child {
-        @include vp-1199 {
-          border-top: 1px solid transparent;
-          border-image: linear-gradient(to right, #ea32d9 0%, #004bed 100%) 1;
-        }
-      }
+      
 
-      li:last-child {
-        @include vp-1199 {
-          border-bottom: none;
-        }
-      }
+     
 
       li:hover {
-        background: linear-gradient(to right, #ea32d9 0%, #004bed 100%);
-        border: 1px solid transparent;
-        border-image: none;
 
         @include vp-1199 {
           background: transparent;
@@ -311,6 +301,30 @@
     }
   }
 
+  .main-nav__bottom-list {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    padding-bottom: 0;
+    &::before {
+      height: 0;
+    }
+
+  }
+
+  .main-nav__bottom-item {
+
+    a {
+      font-family: $ff-inter;
+      font-size: 18px !important;
+      line-height: 21px;
+      color: $color-default-black !important;
+    }
+  }
+
   &__item:first-child {
     @include vp-1199 {
       border-top: 1px solid transparent;
@@ -324,22 +338,17 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    font-family: $ff-roboto;
-    font-size: 16px;
-    line-height: 120%;
-    text-transform: uppercase;
-    color: $color-default-white;
+    font-family: $ff-inter;
+    font-size: 24px;
+    line-height: 28px;
+    color: $color-default-black;
     transition: $trans-default;
     transform: translate3d(0, 0, 0);
-
+    margin: 0;
     svg {
       transition: 0.2s;
     }
 
-    span {
-      border-bottom: 1px solid transparent;
-      transition: border-bottom $trans-default;
-    }
 
     &.is-active {
       svg {
@@ -347,32 +356,18 @@
         transform: rotate(180deg);
       }
 
-      span {
-        border-bottom: 1px solid $color-default-white;
-
-        @include vp-1199 {
-          border-bottom: none;
-        }
-      }
     }
 
     &:hover {
-      span {
-        border-bottom: 1px solid $color-default-white;
-
-        @include vp-1199 {
-          border-bottom: none;
-        }
-      }
+     p {
+      font-weight: 600;
+     }
     }
 
     @include vp-1199 {
       flex-direction: row;
       justify-content: space-between;
       padding: 14px 20px;
-      span {
-        border-bottom: none;
-      }
     }
 
     @include vp-767 {
@@ -394,31 +389,5 @@
     } 
   }
 
-  .main-nav__item {
-    &--mobile {
-      display: none;
-
-      @include vp-767 {
-        display: flex;
-        justify-content: space-between !important;
-        border: none !important;
-        padding: 20px 20px 0;
   
-        .header__contacts {
-          .header__phone,
-          .header__email {
-            padding: 0;
-            margin: 0;
-          }
-
-          .header__email {
-            text-transform: none;
-          }
-        }
-      }
-    }
-   
-
-    
-  }
 }

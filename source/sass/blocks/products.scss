@@ -1,0 +1,50 @@
+.products {
+    
+    overflow: hidden;
+    &__wrapper {
+        padding: 70px 0 50px;
+    }
+    
+    &__title {
+        
+        font-family: $ff-monts;
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 40px;
+        margin: 0 0 20px;
+    }
+    
+       
+    
+    &__content {
+        position: relative;
+    }
+    
+    &__slider {
+        display: flex;
+    }
+    
+    .swiper-wrapper {
+        height: auto;
+    }
+    
+    &__buttons {
+        display: flex;
+        position: relative;
+        width: 150px;
+        top: 100%;
+        right: 0;
+        left: 80%;
+    
+        @include vp-1199 {
+        left: auto;
+        right: -50%;
+        transform: translateX(-50%);
+        }
+    
+        @include vp-589 {
+        width: 100%;
+        }
+    }
+      
+}

@@ -10,7 +10,7 @@ const initCustomSlider = () => {
     //     el: '.swiper-pagination',
     //     clickable: true,
     // },
-    slidesPerView: 1,
+    slidesPerView: 4,
     spaceBetween: 20,
     navigation: {
       nextEl: ".swiper-button-next",

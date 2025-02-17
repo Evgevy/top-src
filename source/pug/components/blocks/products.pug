@@ -1,0 +1,78 @@
+mixin products()
+    - 
+        const cards = [
+        {
+            img: {
+            title: "product1"
+            }, 
+            title: "Крем для лица и тела",
+            text: "Название товара. Можно в пару строчек",
+            link: "Подробнее",
+        },
+        {
+            img: {
+            title: "product2"
+            }, 
+            title: "Масло для душа",
+            text: "Название товара. Можно в пару строчек",
+            link: "Подробнее",
+        },
+        {
+            img: {
+            title: "product3"
+            }, 
+            title: "Увлажняющие средства",
+            text: "Название товара. Можно в пару строчек",
+            link: "Подробнее",
+        },
+        {
+            img: {
+            title: "product4"
+            }, 
+            title: "Очищающие средства",
+            text: "Название товара. Можно в пару строчек",
+            link: "Подробнее",
+        },
+        {
+            img: {
+            title: "product1"
+            }, 
+            title: "Крем для лица и тела",
+            text: "Название товара. Можно в пару строчек",
+            link: "Подробнее",
+        },
+        {
+            img: {
+            title: "product2"
+            }, 
+            title: "Масло для душа",
+            text: "Название товара. Можно в пару строчек",
+            link: "Подробнее",
+        },
+        {
+            img: {
+            title: "product3"
+            }, 
+            title: "Увлажняющие средства",
+            text: "Название товара. Можно в пару строчек",
+            link: "Подробнее",
+        },
+        {
+            img: {
+            title: "product4"
+            }, 
+            title: "Очищающие средства",
+            text: "Название товара. Можно в пару строчек",
+            link: "Подробнее",
+        },
+        ]
+    section.products    
+        .container  
+            .products__wrapper 
+                h2.products__title Продукты atovee
+                .products__content(data-element="products-content")
+                    .products__slider.swiper(data-slider="customer")
+                        .swiper-wrapper 
+                            each card in cards
+                                .swiper-slide
+                                    +products-card(card)

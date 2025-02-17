@@ -3,98 +3,68 @@ mixin header(headerMods, currentUrl)
     const headerLinks = [
       {
         href: "#",
-        text: "Разработка",
+        text: "Каталог"
+      },
+     {
+        href: "#",
+        text: "Подобрать средство",
         isAccent: true,
         list: [
-          {
-            title: "Визитка",
-            href: "#"
+          { 
+            title: "Область", 
+            href: "#",
+            sublist: [
+              { title: "Лицо", href: "#" },
+              { title: "Руки", href: "#" }
+            ]
           },
-          {
-            title: "Landing-page",
-            href: "#"
+          { 
+            title: "Потребность кожи", 
+            href: "#" 
           },
-          {
-            title: "сайт услуг",
-            href: "#"
+          { 
+            title: "Проблемы", 
+            href: "#" 
           },
-          {
-            title: "интернет-магазин",
-            href: "#"
+          { 
+            title: "Типы средств", 
+            href: "#" 
           },
-          {
-            title: "сайт каталог",
-            href: "#"
-          },
-          {
-            title: "корпоративный сайт",
-            href: "#"
-          },
-          {
-            title: "портал",
-            href: "#"
+          { 
+            title: "Ключевые компоненты", 
+            href: "#" 
           }
         ]
       },
       {
         href: "#",
-        text: "Продвижение"
+        text: "Коллекции"
       },
       {
         href: "#",
-        text: "Другие услуги",
+        text: "Наука о коже"
+      },
+      {
+        href: "#",
+        text: "Почему atovee?",
         isAccent: true,
         list: [
           {
-            title: "Контекстная реклама",
+            title: "Science-driven skincare",
             href: "#"
           },
           {
-            title: "Техническая поддержка",
+            title: "Технология EMoist",
             href: "#"
           },
           {
-            title: "Доработка сайтов",
-            href: "#"
-          },
-          {
-            title: "Дизайн сайтов",
-            href: "#"
-          },
-          {
-            title: "Верстка сайтов",
-            href: "#"
-          },
-          {
-            title: "аудит",
-            href: "#"
-          }
-        ]
-      },
-      {
-        href: "#",
-        text: "Блог"
-      },
-      {
-        href: "#",
-        text: "О компании",
-        isAccent: true,
-        list: [
-          {
-            title: "реквизиты",
-            href: "#"
-          },
-          {
-            title: "процесс работы",
-            href: "#"
-          },
-          {
-            title: "вакансии",
-            href: "#"
-          },
-          {
-            title: "Брифы",
-            href: "#"
+            title: "Ключевые компоненты",
+            href: "#",
+            sublist: [
+              { title: "Масло Ши", href: "#" },
+              { title: "Церамиды", href: "#" },
+              { title: "Мочевина", href: "#" }
+            ]
           }
         ]
       },
@@ -107,40 +77,40 @@ mixin header(headerMods, currentUrl)
   header.header(class=headerMods data-header)
     .container
       .header__wrapper
-        a.header__logo(href="index.html", aria-label="Переход на главную")
-          +icon("logo-top", 153, 61)
-          //- img(src="img/sprite/logo-top.svg" width="153" height="61" alt="Лого")
-        nav.main-nav
-          button(type="button" aria-label="Переключатель отображения меню", aria-pressed="false" data-toggle-menu).btn-reset.main-nav__toggle
-            span
-            span
-            span
-          ul.main-nav__list
-            each item in headerLinks
-              li(class=(item.isAccent ? "main-nav__item main-nav__item--accent" : 'main-nav__item'))
-                a.main-nav__link(href=item.href)
-                  span #{item.text}
-                if item.isAccent
-                if item.list
-                  ul.main-nav__sub-list
-                    each i in item.list
-                      li
-                        a(href=i.href) #{i.title}
-            li.main-nav__item.main-nav__item--mobile
-              .header__social 
-                a(href="#!" target="_blank").header__social-link
-                  +icon('icon-telega', 30, 30)
-                a(href="#!" target="_blank").header__social-link
-                  +icon('icon-whats', 30, 30)
-              .header__contacts 
-                a(href="tel:+79999999999").header__phone +7 (999) 999-99-99 
-                a(href="mailto:kaktys@mail.ru").header__email kaktys@mail.ru
-        .header__contacts-list 
-          .header__social 
-            a(href="#!" target="_blank").header__social-link
-              +icon('icon-telega', 30, 30)
-            a(href="#!" target="_blank").header__social-link
-              +icon('icon-whats', 30, 30)
-          .header__contacts 
-            a(href="tel:+79999999999").header__phone +7 (999) 999-99-99 
-            a(href="mailto:kaktys@mail.ru").header__email kaktys@mail.ru
+        .header__top
+          a.header__logo(href="index.html", aria-label="Переход на главную")
+            img(src="img/sprite/logo.svg" width="153" height="61" alt="Лого")
+          .header__icons 
+            button(type="button").header__btn
+              img(src="img/sprite/zoom.svg" width="30" height="30" alt="Лого")
+            button(type="button").header__btn
+              img(src="img/content/heart.png" width="30" height="30" alt="Лого")
+            button(type="button").header__btn
+              img(src="img/sprite/user.svg" width="30" height="30" alt="Лого")
+            button(type="button").header__btn
+              img(src="img/sprite/bag.svg" width="30" height="30" alt="Лого")
+        .header__bottom
+
+          nav.main-nav
+            button(type="button" aria-label="Переключатель отображения меню", aria-pressed="false" data-toggle-menu).btn-reset.main-nav__toggle
+              span
+              span
+              span
+            ul.main-nav__list
+              each item in headerLinks
+                li(class=(item.isAccent ? "main-nav__item main-nav__item--accent" : 'main-nav__item'))
+                  a.main-nav__link(href=item.href)
+                    p #{item.text}
+                  if item.isAccent
+                  if item.list 
+                    ul.main-nav__sub-list
+                      if item.list
+                        .main-nav__sub-content
+                          each i in item.list
+                            li
+                              a(href=i.href) #{i.title}
+                              if i.sublist
+                                ul.main-nav__bottom-list
+                                  each j in i.sublist
+                                    li.main-nav__bottom-item
+                                      a(href=j.href) #{j.title}

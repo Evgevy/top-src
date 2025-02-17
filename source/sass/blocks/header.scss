@@ -1,11 +1,10 @@
 .header {
+  position: relative;
   z-index: 11;
-  // position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: $color-default-black;
-  box-shadow: 0px 4px 4.4px 0px rgba(0, 0, 0, 0.25);
+  background-color: $color-default-white;
   &.is-open {
     .main-nav__toggle {
       span {
@@ -32,10 +31,7 @@
   }
 
   &__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+    // position: relative;
     width: 100%;
     margin: 0 auto;
     padding: 20px 0;
@@ -43,6 +39,16 @@
     @include vp-1023 {
       max-width: unset;
     }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__bottom {
+    overflow: hidden;
   }
 
   &__logo {
@@ -79,67 +85,18 @@
     }
   }
 
-  &__contacts-list {
-    justify-self: end;
-    display: flex;
-    gap: 30px;
-
-    @include vp-1399 {
-      gap: 20px;
-    }
-
-    @include vp-767 {
-      display: none;
-    }
-  }
-
-  &__social {
+  
+  &__icons {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 50px;
   }
 
-  &__social-link {
-    flex-shrink: 0;
+  &__btn {
     img {
-      display: block;
-      width: 30px;
-      height: 30px;
-      object-fit: cover;
+      width: 25px;
+      height: 25px;
+      object-fit: contain;
     }
-  }
-
-  &__contacts {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: end;
-
-    .header__email {
-      text-transform: none;
-    }
-  }
-
-  &__phone,
-  &__email {
-    font-family: $ff-roboto;
-    font-size: 16px;
-    line-height: 0;
-    color: $color-default-white;
-    transition: box-shadow $trans-default;
-    margin: 10px 0;
-  }
-
-  &__phone {
-    text-decoration: underline;
-  }
-
-  &__email {
-    text-transform: none;
-  }
-
-  &__phone:hover,
-  &__email:hover {
-    box-shadow: 0 0 19.7px 3px #00c8ff;
   }
 }

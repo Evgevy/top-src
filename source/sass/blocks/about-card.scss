@@ -11,14 +11,14 @@
     }
 
     @include vp-767 {
-      flex-direction: column;
+      flex-direction: column; 
       padding-bottom: 40px;
       gap: 30px;
     }
   }
 
   &__desc {
-    font-family: $ff-roboto;
+    font-family: $ff-inter;
     font-size: 22px;
     line-height: 120%;
     color: $color-default-white;

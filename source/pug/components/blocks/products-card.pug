@@ -1,0 +1,8 @@
+mixin products-card(card)
+    article.products-card 
+        .products-card__content 
+            .products-card__img 
+                +img("content/products", card.img.title, "webp", 345, 420)
+                h2.products-card__title #{card.title}
+                p.products-card__text #{card.text}
+                a(href="#").products-card__link #{card.link}
